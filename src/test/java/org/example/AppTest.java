@@ -64,20 +64,20 @@ public class AppTest extends BasePage {
             Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Error: You have not been redirected to the dashboard");
             //Screenshot login
             String loginScreenshot = ScreenshotClass.captureScreenshot(driver, "LoginCaptura");
-            test.pass("Login con usuario Admin exitoso").addScreenCaptureFromPath("loginSS");
+            test.pass("Login con usuario Admin exitoso").addScreenCaptureFromPath(loginScreenshot);
 
             //2. Agregar empleado
             AddUserPIM addUserPIM = new AddUserPIM(driver);
             addUserPIM.addEmployee(properties);
             String addEmployeeSS = ScreenshotClass.captureScreenshot(driver, "EmpleadoCaptura");
-            test.pass("Empleado agregado exitosamente").addScreenCaptureFromPath("addEmployeeSS");
+            test.pass("Empleado agregado exitosamente").addScreenCaptureFromPath(addEmployeeSS);
 
             //3. Buscar empleado
             pimSearchPage = new SearchUserPIM(driver);
             boolean found = pimSearchPage.searchEmployeeByName("Maria");
             Assert.assertTrue(found, "El empleado fue encontrado en los resultados");
             String searchEmployeeSS = ScreenshotClass.captureScreenshot(driver, "BuscarEmpleadoCaptura");
-            test.pass("Empleado encontrado exitosamente").addScreenCaptureFromPath("searchSS");
+            test.pass("Empleado encontrado exitosamente").addScreenCaptureFromPath(searchEmployeeSS);
 
             //4. Hacer Logout
             Logout userLogout = new Logout(driver);

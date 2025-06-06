@@ -18,6 +18,7 @@ public class ScreenshotClass {
         File dest = new File(path);
         dest.getParentFile().mkdirs(); // crea la carpeta si no existe
         Files.copy(src.toPath(), dest.toPath());
-        return "screenshots/" + screenshotName + "_" + timestamp + ".png";
+        return dest.getAbsolutePath();
+        //return "screenshots/" + screenshotName + "_" + timestamp + ".png";
     }
 }
